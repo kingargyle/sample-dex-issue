@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>us.nineworlds</groupId>
+		<artifactId>sample-dex-issue-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>us.nineworlds</groupId>
+	<artifactId>sample-dex-issue-it</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>apk</packaging>
+	<name>sample-dex-issue-it - Integration tests</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android-test</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>us.nineworlds</groupId>
+			<artifactId>sample-dex-issue</artifactId>
+			<type>apk</type>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>us.nineworlds</groupId>
+			<artifactId>sample-dex-issue</artifactId>
+			<type>jar</type>
+			<version>1.0.0-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+                <groupId>com.simpligility.maven.plugins</groupId>
+                <artifactId>android-maven-plugin</artifactId>
+				<configuration>
+					<androidManifestFile>${basedir}/AndroidManifest.xml</androidManifestFile>
+                    <resourceDirectory>${basedir}/res</resourceDirectory>
+                    <assetsDirectory>${basedir}/assets</assetsDirectory>
+					<test>
+						<createReport>true</createReport>
+					</test>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
